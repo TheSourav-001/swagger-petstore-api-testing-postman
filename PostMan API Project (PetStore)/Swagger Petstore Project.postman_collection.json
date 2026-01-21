@@ -1,0 +1,472 @@
+{
+  "info": {
+    "_postman_id": "da723736-0bd0-4453-b565-aaf04e1c554e",
+    "name": "Swagger Petstore Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51202975"
+  },
+  "item": [
+    {
+      "name": "PET",
+      "item": [
+        {
+          "name": "createPet",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 103,\r\n    \"category\": {\r\n        \"id\": 1,\r\n        \"name\": \"Cat\"\r\n    },\r\n    \"name\": \"Luna\",\r\n    \"photoUrls\": [\r\n        \"https://example.com/cat2.jpg\"\r\n    ],\r\n    \"tags\": [\r\n        {\r\n            \"id\": 3,\r\n            \"name\": \"sleepy\"\r\n        }\r\n    ],\r\n    \"status\": \"pending\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pet",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pet"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "uploadImage",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "uuid": "51c4b267-bcb8-412e-9bca-c55ef251ce8e",
+                  "src": "/C:/Users/hp/Downloads/cute-curious-gray-and-white-kitten-in-a-long-shot-photo.jpg"
+                },
+                {
+                  "key": "additionalMetadata",
+                  "value": "Mimi's Photo",
+                  "type": "text",
+                  "uuid": "c3122bea-3e07-4906-90e9-775c1339e2b7"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pet/101/uploadImage",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pet",
+                "101",
+                "uploadImage"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updatePet",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 101,\r\n    \"category\": {\r\n        \"id\": 1,\r\n        \"name\": \"Cat\"\r\n    },\r\n    \"name\": \"Mimi Updated\",\r\n    \"status\": \"sold\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pet",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pet"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "findByStatus",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/pet/findByStatus?status=available",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pet",
+                "findByStatus"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "available"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "findByID",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pet/101",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pet",
+                "101"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateByFormData",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "Cat Update",
+                  "type": "text",
+                  "uuid": "96d279c3-ce10-4870-8407-b34256ce1e1c"
+                },
+                {
+                  "key": "status",
+                  "value": "available",
+                  "type": "text",
+                  "uuid": "0573d0c6-e173-49f4-a946-42ea8a42b91a"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pet/101",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pet",
+                "101"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deletePet",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/pet/103",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pet",
+                "103"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "STORE",
+      "item": [
+        {
+          "name": "PlaceOrder",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 505,\r\n    \"petId\": 105,\r\n    \"quantity\": 20,\r\n    \"shipDate\": \"2026-01-12T10:30:00.000Z\",\r\n    \"status\": \"placed\",\r\n    \"complete\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/store/order",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "store",
+                "order"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Inventory",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/store/inventory",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "store",
+                "inventory"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CheckOrderbyID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/store/order/503",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "store",
+                "order",
+                "503"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteOrder",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/store/order/503",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "store",
+                "order",
+                "503"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "USER",
+      "item": [
+        {
+          "name": "CreateUser",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": 1856,\r\n  \"username\": \"nikola_tesla\",\r\n  \"firstName\": \"Nikola\",\r\n  \"lastName\": \"Tesla\",\r\n  \"email\": \"nikola.tesla@example.com\",\r\n  \"password\": \"Tesla@AC1895\",\r\n  \"phone\": \"+12025550189\",\r\n  \"userStatus\": 1\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "createWithArray",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"id\": 2001,\r\n    \"username\": \"albert_einstein\",\r\n    \"firstName\": \"Albert\",\r\n    \"lastName\": \"Einstein\",\r\n    \"email\": \"albert.einstein@example.com\",\r\n    \"password\": \"Relativity@1905\",\r\n    \"phone\": \"+12025550201\",\r\n    \"userStatus\": 1\r\n  },\r\n  {\r\n    \"id\": 2002,\r\n    \"username\": \"isaac_newton\",\r\n    \"firstName\": \"Isaac\",\r\n    \"lastName\": \"Newton\",\r\n    \"email\": \"isaac.newton@example.com\",\r\n    \"password\": \"Gravity@1687\",\r\n    \"phone\": \"+12025550202\",\r\n    \"userStatus\": 1\r\n  },\r\n  {\r\n    \"id\": 2003,\r\n    \"username\": \"marie_curie\",\r\n    \"firstName\": \"Marie\",\r\n    \"lastName\": \"Curie\",\r\n    \"email\": \"marie.curie@example.com\",\r\n    \"password\": \"Radium@1911\",\r\n    \"phone\": \"+12025550203\",\r\n    \"userStatus\": 1\r\n  },\r\n  {\r\n    \"id\": 2004,\r\n    \"username\": \"galileo_galilei\",\r\n    \"firstName\": \"Galileo\",\r\n    \"lastName\": \"Galilei\",\r\n    \"email\": \"galileo.galilei@example.com\",\r\n    \"password\": \"Telescope@1610\",\r\n    \"phone\": \"+12025550204\",\r\n    \"userStatus\": 1\r\n  },\r\n  {\r\n    \"id\": 2005,\r\n    \"username\": \"charles_darwin\",\r\n    \"firstName\": \"Charles\",\r\n    \"lastName\": \"Darwin\",\r\n    \"email\": \"charles.darwin@example.com\",\r\n    \"password\": \"Evolution@1859\",\r\n    \"phone\": \"+12025550205\",\r\n    \"userStatus\": 1\r\n  },\r\n  {\r\n    \"id\": 2006,\r\n    \"username\": \"ada_lovelace\",\r\n    \"firstName\": \"Ada\",\r\n    \"lastName\": \"Lovelace\",\r\n    \"email\": \"ada.lovelace@example.com\",\r\n    \"password\": \"Algorithm@1843\",\r\n    \"phone\": \"+12025550206\",\r\n    \"userStatus\": 1\r\n  },\r\n  {\r\n    \"id\": 2007,\r\n    \"username\": \"alan_turing\",\r\n    \"firstName\": \"Alan\",\r\n    \"lastName\": \"Turing\",\r\n    \"email\": \"alan.turing@example.com\",\r\n    \"password\": \"Enigma@1943\",\r\n    \"phone\": \"+12025550207\",\r\n    \"userStatus\": 1\r\n  },\r\n  {\r\n    \"id\": 2008,\r\n    \"username\": \"thomas_edison\",\r\n    \"firstName\": \"Thomas\",\r\n    \"lastName\": \"Edison\",\r\n    \"email\": \"thomas.edison@example.com\",\r\n    \"password\": \"Bulb@1879\",\r\n    \"phone\": \"+12025550208\",\r\n    \"userStatus\": 1\r\n  },\r\n  {\r\n    \"id\": 2009,\r\n    \"username\": \"steve_jobs\",\r\n    \"firstName\": \"Steve\",\r\n    \"lastName\": \"Jobs\",\r\n    \"email\": \"steve.jobs@example.com\",\r\n    \"password\": \"Apple@1976\",\r\n    \"phone\": \"+12025550209\",\r\n    \"userStatus\": 1\r\n  },\r\n  {\r\n    \"id\": 2010,\r\n    \"username\": \"grace_hopper\",\r\n    \"firstName\": \"Grace\",\r\n    \"lastName\": \"Hopper\",\r\n    \"email\": \"grace.hopper@example.com\",\r\n    \"password\": \"COBOL@1959\",\r\n    \"phone\": \"+12025550210\",\r\n    \"userStatus\": 1\r\n  }\r\n]\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user/createWithArray",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "createWithArray"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateUser",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": 1002,\r\n  \"username\": \"albert_einstein_updated\",\r\n  \"firstName\": \"Albert\",\r\n  \"lastName\": \"Einstein\",\r\n  \"email\": \"albert.einstein.updated@example.com\",\r\n  \"password\": \"Relativity@1905Updated\",\r\n  \"phone\": \"+12025550999\",\r\n  \"userStatus\": 1\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user/albert_einstein",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "albert_einstein"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetUserbyUsername",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/steve_jobs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "steve_jobs"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "LogInUser",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/user/login?username=steve_jobs&password=Apple@1976",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "user",
+                "login"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "steve_jobs"
+                },
+                {
+                  "key": "password",
+                  "value": "Apple@1976"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "LogOutUser",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteUser",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/albert_einstein",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "albert_einstein"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
